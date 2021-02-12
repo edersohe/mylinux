@@ -1,0 +1,44 @@
+#!/bin/sh
+
+NOW=$(date +"%Y%m%d%H%M%S")
+SRC_DIR=$(pwd)/dotfiles
+DST_DIR=${HOME}
+BKP_DIR=${DST_DIR}/.mylinux/${NOW}
+
+stream() {
+    for v in $@; do
+       echo $v
+    done
+}
+
+pipe() {
+    while read data; do
+	(eval "echo $(echo $@)")
+	if [ -z "$DEBUG" ]; then
+            (eval "$(echo $@)") 	
+	fi
+    done
+}
+
+create_directory() {
+    pipe "mkdir -p \$data"
+}
+
+list_dotfiles() {
+    find ./dotfiles -maxdepth 2 | cut -d "/" -f 3,4 | grep -Ev "(^$|^.config$)"
+}
+
+backup() {
+    pipe mv ${DST_DIR}/\$data ${BKP_DIR}/\$data
+}
+
+link() {
+    pipe ln -s ${SRC_DIR}/\$data ${DST_DIR}/\$data
+}
+
+stream $DST_DIR/.config $BKP_DIR/.config | create_directory
+
+list_dotfiles | backup
+
+list_dotfiles | link
+
