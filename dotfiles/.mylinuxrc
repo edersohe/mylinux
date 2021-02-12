@@ -2,3 +2,9 @@ export EDITOR=nvim
 
 eval "$(starship init bash)"
 
+alias ls="exa -la -s name -s type"
+alias ll="ls"
+alias lg="lazygit"
+alias vim="nvim"
+alias vimdiff="nvim -d"
+
