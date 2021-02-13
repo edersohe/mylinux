@@ -4,7 +4,8 @@ export TERM=alacritty
 
 eval "$(starship init bash)"
 
-alias ls="exa -la -s name -s type"
+alias cat="bat"
+alias ls="exa -ls name"
 alias ll="ls"
 alias lg="lazygit"
 alias vim="nvim"
