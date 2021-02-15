@@ -4,7 +4,7 @@ NOW=$(date +"%Y%m%d%H%M%S")
 SRC_DIR=$(pwd)/dotfiles
 DST_DIR=${HOME}
 BKP_DIR=${DST_DIR}/.mylinux/${NOW}
-
+PACKAGES="neovim lazygit-bin starship-bin lf-bin paru-bin exa fzf ripgrep bat go nodejs-lts-fermium npm yarn elixir elixir-ls rustup php pulseaudio-bluetooth blueman gst-plugins-base noto-fonts ctags emacs"
 stream() {
     for v in $@; do
       echo $v
@@ -36,17 +36,60 @@ link() {
   pipe ln -s ${SRC_DIR}/\$data ${DST_DIR}/\$data
 }
 
+yay -S ${PACKAGES}
+
 stream $DST_DIR/.config $BKP_DIR/.config | create_directory
 
 list_dotfiles | backup
 
 list_dotfiles | link
 
-curl -fsSL https://starship.rs/install.sh | bash
-
-curl -sLf https://spacevim.org/install.sh | bash
-
-cd ${HOME}/.Spacevim/bundler/vimproc && make && cd -
+sudo systemctl enable bluetooth
+sudo systemctl start bluetooth
 
 echo '[[ -f ~/.mylinuxrc ]] && . ~/.mylinuxrc' >> ${DST_DIR}/.bashrc
+source ${DST_DIR}/.bashrc
+
+curl -fsSL https://starship.rs/install.sh | bash
+
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py --user
+rm get-pip.py
+pip install -U pyvim
+pip install -U pygments
+pip install -U pipenv
+pip install -U notedown
+pip install -U pylint
+pip install -U yapf
+pip install -U autoflake
+pip install -U isort
+pip install -U coverage
+pip install -U python-language-server
+
+npm config set prefix ${DST_DIR}/.local
+npm i -g typescript
+npm i -g lehre
+npm i -g remark
+npm i -g remark-cli
+npm i -g remark-stringify
+npm i -g remark-frontmatter
+npm i -g wcwidth
+npm i -g prettier
+npm i -g bash-language-server
+npm i -g vscode-css-languageserver-bin
+npm i -g vscode-html-languageserver-bin
+npm i -g javascript-typescript-langserver
+
+go get -u golang.org/x/tools/gopls@latest
+
+
+curl -sLf https://spacevim.org/install.sh | bash
+cd ${DST_DIR}/.SpaceVim/bundle/vimproc.vim
+make
+cd -
+
+git clone --depth 1 https://github.com/hlissner/doom-emacs ${DST_DIR}/.emacs.d
+${DST_DIR}/.emacs.d/bin/doom install
+
+curl -fsSL https://starship.rs/install.sh | bash
 

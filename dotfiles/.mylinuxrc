@@ -1,5 +1,5 @@
-export EDITOR=emacs
-export VISUAL=emacs
+export EDITOR=nvim
+export VISUAL=nvim
 export TERM=alacritty
 export PATH=$HOME/.emacs.d/bin:$HOME/go/bin:$HOME/.local/bin:$PATH
 
@@ -11,4 +11,4 @@ alias ll="ls"
 alias lg="lazygit"
 alias vim="nvim"
 alias vimdiff="nvim -d"
-alias emacs="emacs -nw"
+

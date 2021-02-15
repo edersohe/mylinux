@@ -72,12 +72,15 @@ default_height = 30
 
 [[layers]]
   name = "lang#graphql"
- 
+
 [[layers]]
   name = "lang#go"
 
 [[layers]]
   name = "lang#html"
+
+[[layers]]
+  name = "lang#ipynb"
 
 [[layers]]
   name = "lang#javascript"
@@ -125,3 +128,4 @@ default_height = 30
     [layers.override_cmd]
       elixir = ["elixir-ls"]
       go = ['gopls', '-mode', 'stdio']
+
