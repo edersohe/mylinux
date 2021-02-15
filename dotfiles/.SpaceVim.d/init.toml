@@ -8,10 +8,10 @@
 
 # All SpaceVim option below [option] section
 [options]
-    # set spacevim theme. by default colorscheme layer is not loaded,
+    # setº spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "one"
+    colorscheme = "onedark"
     colorscheme_bg = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
@@ -23,6 +23,7 @@
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_mode = true
+    autocomplete_method = "coc"
 
 # Enable autocomplete layer
 [[layers]]
@@ -37,3 +38,90 @@ default_height = 30
 
 [[layers]]
   name = "colorscheme"
+
+[[layers]]
+  name = "gtags"
+  gtagslabel = "pygments"
+
+[[layers]]
+  name = "denite"
+
+[[layers]]
+  name = "VersionControl"
+
+[[layers]]
+  name = "git"
+
+[[layers]]
+  name = "github"
+
+[[layers]]
+  name = "default"
+
+[[layers]]
+  name = "lang#css"
+
+[[layers]]
+  name = "lang#dockerfile"
+
+[[layers]]
+  name = "lang#elixir"
+
+[[layers]]
+  name = "lang#erlang"
+
+[[layers]]
+  name = "lang#graphql"
+ 
+[[layers]]
+  name = "lang#go"
+
+[[layers]]
+  name = "lang#html"
+
+[[layers]]
+  name = "lang#javascript"
+
+[[layers]]
+  name = "lang#markdown"
+
+[[layers]]
+  name = "lang#python"
+
+[[layers]]
+  name = "lang#rust"
+
+[[layers]]
+  name = "lang#sh"
+
+[[layers]]
+  name = "lang#toml"
+
+[[layers]]
+  name = "lang#typescript"
+
+[[layers]]
+  name = "lang#vim"
+
+[[layers]]
+  name = "lang#xml"
+
+[[layers]]
+  name = "lsp"
+  filetypes = [
+    "css",
+    "dockerfile",
+    #"erlang",
+    "elixir",
+    "go",
+    "html",
+    "javascript",
+    "python",
+    "rust",
+    "sh",
+    "typescript"
+  ]
+
+    [layers.override_cmd]
+      elixir = ["elixir-ls"]
+      go = ['gopls', '-mode', 'stdio']
