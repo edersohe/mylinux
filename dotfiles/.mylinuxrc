@@ -1,6 +1,7 @@
 export EDITOR=nvim
 export VISUAL=nvim
 export TERM=alacritty
+export PATH=$HOME/.local/bin:$PATH
 
 eval "$(starship init bash)"
 
