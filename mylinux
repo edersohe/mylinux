@@ -4,7 +4,34 @@ NOW=$(date +"%Y%m%d%H%M%S")
 SRC_DIR=$(pwd)/dotfiles
 DST_DIR=${HOME}
 BKP_DIR=${DST_DIR}/.mylinux/${NOW}
-PACKAGES="neovim lazygit-bin starship-bin lf-bin paru-bin exa fzf ripgrep bat go nodejs-lts-fermium npm yarn elixir elixir-ls rustup php pulseaudio-bluetooth blueman gst-plugins-base noto-fonts ctags emacs"
+PACKAGES='
+alacritty
+neovim
+lazygit-bin
+starship-bin
+lf-bin
+paru-bin
+exa
+fzf
+fd
+ripgrep
+bat
+go
+nodejs-lts-fermium
+npm
+yarn
+elixir
+elixir-ls
+rustup
+php
+pulseaudio-bluetooth
+blueman
+gst-plugins-base
+noto-fonts
+global
+ctags
+emacs'
+
 stream() {
     for v in $@; do
       echo $v
@@ -81,7 +108,6 @@ npm i -g vscode-html-languageserver-bin
 npm i -g javascript-typescript-langserver
 
 go get -u golang.org/x/tools/gopls@latest
-
 
 curl -sLf https://spacevim.org/install.sh | bash
 cd ${DST_DIR}/.SpaceVim/bundle/vimproc.vim
