@@ -5,6 +5,8 @@ SRC_DIR=$(pwd)/dotfiles
 DST_DIR=${HOME}
 BKP_DIR=${DST_DIR}/.mylinux/${NOW}
 PACKAGES='
+numlockx
+autotiling
 alacritty
 neovim
 lazygit-bin
@@ -113,6 +115,8 @@ curl -sLf https://spacevim.org/install.sh | bash
 cd ${DST_DIR}/.SpaceVim/bundle/vimproc.vim
 make
 cd -
+echo 'execute "source " . expand("$HOME/.SpaceVim.d/init.vim")' >> ${DST_DIR}/.SpaceVim/init.vim
+
 
 git clone --depth 1 https://github.com/hlissner/doom-emacs ${DST_DIR}/.emacs.d
 ${DST_DIR}/.emacs.d/bin/doom install
