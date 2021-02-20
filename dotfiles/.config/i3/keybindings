@@ -11,7 +11,7 @@ https://endeavouros.com/docs/window-tiling-managers/i3-wm/
 
  = windows key
 
-# start xfce4-terminal
+# start terminal
 +Return 
 
 # kill focused window
@@ -36,7 +36,7 @@ F10 or +t
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 +Shift+r
 
-# full keybinding list in editor:
+# full keybinding list:
 +F1
 
 # change window focus
@@ -98,6 +98,6 @@ F10 or +t
 +p
 
 ## App shortcuts
-+w starts Firefox
-+n starts Thunar
++w starts browser
++n starts file manager
 Print Button screenshot
