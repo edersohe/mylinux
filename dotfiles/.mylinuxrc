@@ -5,7 +5,7 @@ export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
 
 eval "$(starship init bash)"
 
-alias cat="bat --plain --color=always --paging=never"
+alias cat="bat --color=always"
 alias ls="exa -ls name"
 alias ll="ls"
 alias lg="lazygit"

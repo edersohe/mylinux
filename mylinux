@@ -28,13 +28,14 @@ php
 pulseaudio-bluetooth
 blueman
 gst-plugins-base
-noto-fonts
+nerd-fonts-noto
 global
 ctags
 ranger
 w3m
 zathura-pdf-mupdf
-highlight
+otf-font-awesome
+gopass
 '
 
 stream() {
