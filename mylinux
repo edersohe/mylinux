@@ -7,7 +7,7 @@ BKP_DIR=${DST_DIR}/.mylinux/${NOW}
 PACKAGES='
 numlockx
 autotiling
-alacritty
+kitty
 neovim
 lazygit-bin
 starship-bin
@@ -36,6 +36,7 @@ w3m
 zathura-pdf-mupdf
 otf-font-awesome
 gopass
+imv
 '
 
 stream() {
@@ -88,6 +89,7 @@ curl -fsSL https://starship.rs/install.sh | bash
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python get-pip.py --user
 rm get-pip.py
+pip install -U pynvim
 pip install -U pyvim
 pip install -U pygments
 pip install -U pipenv
@@ -98,6 +100,7 @@ pip install -U autoflake
 pip install -U isort
 pip install -U coverage
 pip install -U python-language-server
+pip install -U pillow
 
 npm config set prefix ${DST_DIR}/.local
 npm i -g typescript

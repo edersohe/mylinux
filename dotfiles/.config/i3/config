@@ -127,7 +127,7 @@ bindsym $mod+Shift+10    move container to workspace  $ws10
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+c kill
@@ -148,7 +148,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # keybinding list in editor:
-bindsym $mod+F1 exec alacritty -e bat -l md ~/.config/i3/keybindings
+bindsym $mod+F1 exec kitty bat -p -l md ~/.config/i3/keybindings
 
 # change focus
 bindsym $mod+j focus left
@@ -222,7 +222,7 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
 bindsym $mod+w exec qutebrowser
-bindsym $mod+n exec alacritty --class "lf" -e lf
+bindsym $mod+n exec kitty --class "ranger" ranger
 bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
 
 ##########################################
@@ -252,16 +252,17 @@ set $ws10 "10"
 #workspace $ws5 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
-assign [class="alacritty"] $ws1
+assign [class="kitty"] $ws1
 assign [class="qutebrowser"] $ws2
-assign [class="Alacritty" instance="lf"] $ws3
+assign [class="ranger"] $ws3
 assign [class="Thunderbird"] $ws4
 assign [class="TelegramDesktop"] $ws5
 
 
 # automatic set focus new window if it opens on another workspace then the current:
-for_window [class=alacritty] focus
-#for_window [class=(?i)firefox] focus
+for_window [class=kitty] focus
+for_window [class=qutebrowser] focus
+for_window [class=ranger] focus
 #for_window [class=Thunar] focus
 #for_window [class=Thunderbird] focus
 #for_window [class=TelegramDesktop] focus
@@ -407,20 +408,20 @@ bar {
 
 ## rofi bindings fancy application menu (two bindings F9/$mod+d)
 
-bindsym $mod+d exec rofi -terminal alacritty -modi drun -show drun -display-drun "Apps : " -line-padding 4 \
+bindsym $mod+d exec rofi -terminal kitty -modi drun -show drun -display-drun "Apps : " -line-padding 4 \
                 -columns 2 -padding 50 -hide-scrollbar \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
                 
-bindsym F9 exec rofi -terminal alacritty -modi drun -show drun -display-drun "Apps : " -line-padding 4 \
+bindsym F9 exec rofi -terminal kitty -modi drun -show drun -display-drun "Apps : " -line-padding 4 \
                 -columns 2 -padding 30 -hide-scrollbar \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
 
 ## rofi bindings for window menu (two bindings F10/$mod+t)
 
-bindsym $mod+t exec rofi -terminal alacritty -show window -display-window "Window : " -line-padding 4 \
+bindsym $mod+t exec rofi -terminal kitty -show window -display-window "Window : " -line-padding 4 \
                 -lines 10 -padding 50 -hide-scrollbar \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
 
-bindsym F10 exec rofi -terminal alacritty -show window -display-window "Window : " -line-padding 4 \
+bindsym F10 exec rofi -terminal kitty -show window -display-window "Window : " -line-padding 4 \
                 -lines 10 -padding 50 -hide-scrollbar \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"

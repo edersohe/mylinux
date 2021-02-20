@@ -1,0 +1,3 @@
+#!/bin/sh
+
+curl -L "https://raw.githubusercontent.com/dexpota/kitty-themes/master/themes/$1.conf" -o theme.conf

@@ -1,6 +1,6 @@
 export EDITOR=nvim
 export VISUAL=nvim
-export TERM=alacritty
+export TERM=xterm-kitty
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
 
 eval "$(starship init bash)"
