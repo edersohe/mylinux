@@ -11,7 +11,6 @@ alacritty
 neovim
 lazygit-bin
 starship-bin
-lf-bin
 paru-bin
 exa
 fzf
@@ -31,7 +30,12 @@ blueman
 gst-plugins-base
 noto-fonts
 global
-ctags'
+ctags
+ranger
+w3m
+zathura-pdf-mupdf
+highlight
+'
 
 stream() {
     for v in $@; do
