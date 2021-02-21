@@ -17,11 +17,11 @@ https://endeavouros.com/docs/window-tiling-managers/i3-wm/
 # kill focused window
 +c
 
-# Application menu search by typing (fancy Rofi menu):
-F9 or +i
+# Application menu search by typing (dmenu):
++d
 
-# Window switcher menu (fancy Rofu menu):
-F10 or +t
+# Window switcher menu (dmenu):
++t
 
 # fancy exit-menu on bottom right:
 +Shift+e

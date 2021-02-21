@@ -37,6 +37,10 @@ zathura-pdf-mupdf
 otf-font-awesome
 gopass
 imv
+dmenu
+j4-dmenu-desktop
+jq
+mpv
 '
 
 stream() {

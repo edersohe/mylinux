@@ -1,0 +1,5 @@
+#!/bin/sh
+
+source $HOME/.mylinuxrc
+
+j4-dmenu-desktop
