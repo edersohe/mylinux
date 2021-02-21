@@ -30,20 +30,21 @@
     enable_vimfiler_welcome = false
     enable_vimfiler_filetypeicon = true
     project_rooter_automatically = false
+    relativenumber = false
 
 [[layers]]
   name = "incsearch"
 
 # Enable autocomplete layer
 [[layers]]
-name = 'autocomplete'
-auto_completion_return_key_behavior = "complete"
-auto_completion_tab_key_behavior = "smart"
+  name = 'autocomplete'
+  auto_completion_return_key_behavior = "complete"
+  auto_completion_tab_key_behavior = "smart"
 
 [[layers]]
-name = 'shell'
-default_position = 'top'
-default_height = 30
+  name = 'shell'
+  default_position = 'top'
+  default_height = 30
 
 [[layers]]
   name = 'core'
