@@ -1,0 +1,10 @@
+--- a/dotfiles/.mylinuxrc
++++ b/dotfiles/.mylinuxrc
+@@ -20,7 +20,6 @@ alias lg="lazygit"
+ alias vim="nvim"
+ alias vimdiff="nvim -d"
+ 
+-
+ DMENU_OPTS="-b -i -fn \"NotoSans Nerd Font:size=10\""
+ 
+ alias dmenu="dmenu $DMENU_OPTS"

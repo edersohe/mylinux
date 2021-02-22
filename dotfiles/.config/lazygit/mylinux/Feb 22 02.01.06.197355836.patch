@@ -1,0 +1,17 @@
+--- a/dotfiles/.mylinuxrc
++++ b/dotfiles/.mylinuxrc
+@@ -14,14 +14,13 @@ fi
+ 
+ eval "$(starship init bash)"
+ 
+-alias cat="bat --color=always --plain --paging=never"
+ alias ls="exa -ls name"
+ alias ll="ls"
+ alias lg="lazygit"
+ alias vim="nvim"
+ alias vimdiff="nvim -d"
+ 
+ 
+ DMENU_OPTS="-b -i -fn \"NotoSans Nerd Font:size=10\""
+ 
+ alias dmenu="dmenu $DMENU_OPTS"

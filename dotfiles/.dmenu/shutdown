@@ -7,11 +7,11 @@ OPTIONS=' Shutdown\n Reboot\n Suspend\n Lock\n Logout'
 RESULT=$(echo -e $OPTIONS | dmenu)
 
 if [[ $RESULT = " Shutdown" ]]; then
-	systemctl shutdown
+	systemctl poweroff
 elif [[ $RESULT = " Reboot" ]]; then
 	systemctl reboot
 elif [[ $RESULT = " Suspend" ]]; then
-	sustemctl suspend
+	systemctl suspend
 elif [[ $RESULT = " Lock" ]]; then
 	~/.config/i3/scripts/blur-lock.sh
 elif [[ $RESULT = " Logout" ]]; then
