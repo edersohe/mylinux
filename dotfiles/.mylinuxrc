@@ -4,6 +4,8 @@ export EDITOR=nvim
 export VISUAL=nvim
 export TERM=xterm-kitty
 export TERMINAL=kitty
+export PAGER="nvim -RMn -u $HOME/.SpaceVim.d/pager.vim"
+export MANPAGER="$PAGER -c 'set ft=man'"
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
 
 if [ -n "$SWAYSOCK" ] && command -v swaymsg >/dev/null; then
@@ -17,8 +19,6 @@ eval "$(starship init bash)"
 alias ls="exa -ls name"
 alias ll="ls"
 alias lg="lazygit"
-alias vim="nvim"
-alias vimdiff="nvim -d"
 
 DMENU_OPTS="-b -i -fn \"NotoSans Nerd Font:size=10\""
 
