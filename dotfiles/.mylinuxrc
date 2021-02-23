@@ -7,6 +7,7 @@ export TERMINAL=kitty
 export PAGER="nvim -RMn -u $HOME/.SpaceVim.d/pager.vim"
 export MANPAGER="$PAGER -c 'set ft=man'"
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
+export DMENU_OPTS="-b -i -fn \"NotoSans Nerd Font:size=10\""
 
 if [ -n "$SWAYSOCK" ] && command -v swaymsg >/dev/null; then
     export MSG_PROGRAM='swaymsg'
@@ -19,10 +20,4 @@ eval "$(starship init bash)"
 alias ls="exa -ls name"
 alias ll="ls"
 alias lg="lazygit"
-
-DMENU_OPTS="-b -i -fn \"NotoSans Nerd Font:size=10\""
-
-alias dmenu="dmenu $DMENU_OPTS"
-alias dmenu_run="dmenu_run $DMENU_OPTS"
-alias j4-dmenu-desktop="j4-dmenu-desktop --dmenu='dmenu $DMENU_OPTS' --no-generic --display-binary"
 

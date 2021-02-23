@@ -2,9 +2,11 @@
 
 source $HOME/.mylinuxrc
 
-OPTIONS=' Shutdown\n Reboot\n Suspend\n Lock\n Logout'
+alias dmenu_shutdown="dmenu $DMENU_OPTS"
 
-RESULT=$(echo -e $OPTIONS | dmenu)
+MENU_OPTS=' Shutdown\n Reboot\n Suspend\n Lock\n Logout'
+
+RESULT=$(echo -e $MENU_OPTS | dmenu_shutdown)
 
 if [[ $RESULT = " Shutdown" ]]; then
 	systemctl poweroff

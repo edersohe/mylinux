@@ -2,10 +2,12 @@
 
 source $HOME/.mylinuxrc
 
+alias dmenu_windows="dmenu $DMENU_OPTS"
+
 $MSG_PROGRAM -t get_tree \
 	| jq -r 'recurse(.nodes[]?)|recurse(.floating_nodes[]?)|select(.type=="con"),select(.type=="floating_con")|(.id|tostring)+" "+.app_id+": "+.name' \
 	| grep -Ev '^[0-9]* \: (i3bar for output.*|content)?$' \
-    | dmenu \
+    | dmenu_windows \
 	| awk '{print $1}' \
 	| xargs -I % "$MSG_PROGRAM" '[con_id="%"] focus'
 

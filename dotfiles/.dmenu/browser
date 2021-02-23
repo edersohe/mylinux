@@ -1,0 +1,10 @@
+#!/bin/sh
+
+source $HOME/.mylinuxrc
+
+alias dmenu_browser="dmenu $DMENU_OPTS"
+
+RESULT=$(cat $HOME/.config/qutebrowser/quickmarks | dmenu_browser)
+
+qutebrowser --target tab $(echo $RESULT | cut -d " " -f 2)
+

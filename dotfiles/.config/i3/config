@@ -413,3 +413,6 @@ bindsym $mod+t exec --no-startup-id ~/.dmenu/windows
 # dmenu shutdown menu
 bindsym $mod+Shift+e exec --no-startup-id ~/.dmenu/shutdown
 
+# dmenu qutebrowser quickmarks
+bindsym $mod+q exec --no-startup-id ~/.dmenu/browser
+
