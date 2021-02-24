@@ -126,7 +126,6 @@ curl -sLf https://spacevim.org/install.sh | bash
 cd ${DST_DIR}/.SpaceVim/bundle/vimproc.vim
 make
 cd -
-echo 'execute "source " . expand("$HOME/.SpaceVim.d/init.vim")' >> ${DST_DIR}/.SpaceVim/init.vim
 
 curl -fsSL https://starship.rs/install.sh | bash
 
