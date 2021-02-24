@@ -4,8 +4,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export TERM=xterm-kitty
 export TERMINAL=kitty
-export PAGER="nvim -RMn -u $HOME/.SpaceVim.d/pager.vim"
-export MANPAGER="$PAGER -c 'set ft=man'"
+export PAGER="nvim -Rmn"
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
 export DMENU_OPTS="-b -i -fn \"NotoSans Nerd Font:size=10\""
 
