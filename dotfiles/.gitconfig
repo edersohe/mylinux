@@ -2,10 +2,10 @@
 	name = Eder Sosa
 	email = eder.sohe@gmail.com
 [diff]
-	tool = nvim -d
+	tool = nvimdiff
 	prompt = false
 [merge]
-	tool = nvim -d
+	tool = nvimdiff
 	prompt = false
     diff = false
 
