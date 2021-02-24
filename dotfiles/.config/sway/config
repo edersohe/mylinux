@@ -25,7 +25,8 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu kitty --class "menu" --config ~/.config/kitty/menu.conf j4-dmenu-desktop --display-binary --no-generic --dmenu=fzf --wrapper="swaymsg exec" --term="kitty"
 
 ### Output configuration
 #
@@ -70,7 +71,7 @@ input * xkb_layout "es"
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+c kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -153,7 +154,7 @@ input * xkb_layout "es"
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    bindsym $mod+Shift+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
@@ -198,7 +199,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+Shift+r mode "resize"
 
 #
 # Status Bar:
@@ -217,5 +218,23 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+
+
+exec --no-startup-id autotiling -w 1 3 5
+
+bindsym $mod+p exec qutebrowser --target private-window google.com
+bindsym $mod+q exec qutebrowser --target tab google.com
+bindsym $mod+r exec kitty --class "ranger" ranger
+
+assign [app_id=kitty] number 1
+assign [app_id=org.qutebrowser.qutebrowser] number 2
+assign [app_id=ranger] number 3
+
+for_window [app_id=kitty] focus
+for_window [app_id=org.qutebrowser.qutebrowser] focus
+for_window [app_id=ranger] focus
+for_window [app_id=menu] focus
+
+for_window [app_id="menu"] floating enable
 
 include /etc/sway/config.d/*
