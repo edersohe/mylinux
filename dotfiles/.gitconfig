@@ -7,7 +7,5 @@
 [merge]
 	tool = nvimdiff
 	prompt = false
-    diff = false
-
 [color]
 	diff = false

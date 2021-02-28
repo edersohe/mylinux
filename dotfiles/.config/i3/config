@@ -333,22 +333,22 @@ for_window [class="Pamac-manager"] floating enable
 # Define colors variables: 
 set $darkbluetrans	#08052be6
 set $darkblue		#08052b
-set $lightblue		#5294e2
+set $lightblue		#81A1C1
 set $urgentred		#e53935
 set $white		#ffffff
 set $black		#000000
 set $purple		#e345ff
-set $darkgrey		#383c4a
+set $darkgrey		#3B4252
 set $grey		#b0b5bd
 set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    $lightblue	$darkblue	$white		$purple		$mediumgrey
-client.unfocused	    $darkblue	$darkblue	$grey		$purple		$darkgrey
-client.focused_inactive	$darkblue	$darkblue	$grey		$purple		$black
-client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
+client.focused		    $lightblue	$darkblue	$white		$lightblue	$lightblue
+client.unfocused	    $darkgrey	$darkblue	$grey		$darkgrey		$darkgrey
+client.focused_inactive	$darkgrey	$darkblue	$grey		$darkgrey		$darkgrey
+client.urgent		    $urgentred	$urgentred	$white		$darkgrey		$yellowbrown
 
 
 ############################################
@@ -359,17 +359,17 @@ client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
 # (plus the system information i3status finds out, if available)
 bar {
 		font pango:NotoSans Nerd Font 10, Font Awesome 5 Free 10
-		status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#           status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	    	position bottom 
-#	    	i3bar_command i3bar --transparency
+	    	i3bar_command i3bar --transparency
 		    tray_output primary
 		    tray_padding 0
 		    colors {
-		    separator          $purple
-		    background         $darkgrey
-		    statusline         $white
+                separator          $purple
+                background         $darkgrey
+                statusline         $grey
 #                          		border 		        bg		txt		indicator
-		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
+		focused_workspace	$grey	   	$grey		$darkgrey	$purple
 		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
 		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
 		urgent_workspace	$urgentred	    	$urgentred	$white		$purple 
