@@ -3,4 +3,4 @@ dotfiles/.config/lazygit/state.yml
 dotfiles/.config/gtk-3.0/bookmarks
 dotfiles/.SpaceVim.d/.netrwhist
 dotfiles/.config/qutebrowser/autoconfig.yml
-
+*.pyc
