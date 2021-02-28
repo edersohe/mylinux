@@ -34,6 +34,10 @@
   bootstrap_before = 'myspacevim#before'
   bootstrap_after = 'myspacevim#after'
 
+[[custom_plugins]]
+  repo = "powerman/vim-plugin-AnsiEsc"
+  merged = false
+
 [[layers]]
   name = "incsearch"
 

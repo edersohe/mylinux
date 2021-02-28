@@ -88,6 +88,12 @@ sudo systemctl start bluetooth
 echo '[[ -f ~/.mylinuxrc ]] && . ~/.mylinuxrc' >> ${DST_DIR}/.bashrc
 source ${DST_DIR}/.bashrc
 
+echo '
+if [ -z "$DISPLAY" -a $XDG_VTNR -eq 1 ]; then
+  startx && exit
+fi' >> ${DST_DIR}/.bash_profile
+
+
 curl -fsSL https://starship.rs/install.sh | bash
 
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
