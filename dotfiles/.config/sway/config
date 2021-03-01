@@ -248,6 +248,6 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec $menu
 
-
+exec --no-startup-id pipewire
 
 include /etc/sway/config.d/*

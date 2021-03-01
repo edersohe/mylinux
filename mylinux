@@ -1,47 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 NOW=$(date +"%Y%m%d%H%M%S")
 SRC_DIR=$(pwd)/dotfiles
 DST_DIR=${HOME}
 BKP_DIR=${DST_DIR}/.mylinux/${NOW}
-PACKAGES='
-numlockx
-autotiling
-kitty
-neovim
-lazygit-bin
-starship-bin
-paru-bin
-exa
-fzf
-fd
-ripgrep
-bat
-go
-nodejs-lts-fermium
-npm
-yarn
-elixir
-elixir-ls
-rustup
-php
-pulseaudio-bluetooth
-blueman
-gst-plugins-base
-nerd-fonts-noto
-global
-ctags
-ranger
-w3m
-zathura-pdf-mupdf
-otf-font-awesome
-gopass
-imv
-dmenu
-j4-dmenu-desktop
-jq
-mpv
-'
 
 stream() {
     for v in $@; do
@@ -63,7 +25,8 @@ create_directory() {
 }
 
 list_dotfiles() {
-  find ./dotfiles -maxdepth 2 | cut -d "/" -f 3,4 | grep -Ev "(^$|^.config$)"
+  stream $(find ./dotfiles -maxdepth 1 | cut -d "/" -f 3 | grep -Ev "^(|\.config)$")
+  stream $(find ./dotfiles/.config -maxdepth 1 | cut -d "/" -f 3,4 | grep -Ev "^(|\.config)$")
 }
 
 backup() {
@@ -74,27 +37,20 @@ link() {
   pipe ln -s ${SRC_DIR}/\$data ${DST_DIR}/\$data
 }
 
-yay -S ${PACKAGES}
-
 stream $DST_DIR/.config $BKP_DIR/.config | create_directory
 
 list_dotfiles | backup
 
 list_dotfiles | link
 
-sudo systemctl enable bluetooth
-sudo systemctl start bluetooth
-
 echo '[[ -f ~/.mylinuxrc ]] && . ~/.mylinuxrc' >> ${DST_DIR}/.bashrc
-source ${DST_DIR}/.bashrc
+. ${DST_DIR}/.bashrc
 
 echo '
 if [ -z "$DISPLAY" -a $XDG_VTNR -eq 1 ]; then
   startx && exit
 fi' >> ${DST_DIR}/.bash_profile
 
-
-curl -fsSL https://starship.rs/install.sh | bash
 
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python get-pip.py --user
@@ -132,6 +88,4 @@ curl -sLf https://spacevim.org/install.sh | bash
 cd ${DST_DIR}/.SpaceVim/bundle/vimproc.vim
 make
 cd -
-
-curl -fsSL https://starship.rs/install.sh | bash
 
