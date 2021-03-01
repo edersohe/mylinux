@@ -157,3 +157,6 @@ c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}'}
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
 c.url.start_pages = 'https://google.com'
+
+config.source('theme.py')
+
