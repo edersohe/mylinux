@@ -261,6 +261,7 @@ assign [class="TelegramDesktop"] $ws5
 for_window [class=kitty] focus
 for_window [class=qutebrowser] focus
 for_window [class=ranger] focus
+for_window [class=menu] focus
 #for_window [class=Thunar] focus
 #for_window [class=Thunderbird] focus
 #for_window [class=TelegramDesktop] focus
@@ -325,6 +326,7 @@ for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Pamac-manager"] floating enable
+for_window [class="menu"] floating enable
 
 ######################################
 # color settings for bar and windows #
@@ -407,14 +409,14 @@ bar {
 #####################################
 
 # dmenu app launcher
-bindsym $mod+d exec --no-startup-id ~/.dmenu/apps
+bindsym $mod+d exec kitty-menu fzf-desktopapps
 
 # dmenu windows apps list
-bindsym $mod+t exec --no-startup-id ~/.dmenu/windows
+bindsym $mod+t exec kitty-menu fzf-window-switcher
 
 # dmenu shutdown menu
-bindsym $mod+Shift+e exec --no-startup-id ~/.dmenu/shutdown
+bindsym $mod+Shift+e exec kitty-menu fzf-shutdown
 
 # dmenu qutebrowser quickmarks
-bindsym $mod+q exec --no-startup-id ~/.dmenu/browser
+bindsym $mod+q exec kitty-menu fzf-qutebrowser-quickmarks
 
