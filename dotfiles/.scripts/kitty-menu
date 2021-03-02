@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+kitty --class "menu" --config $HOME/.config/kitty/menu.conf $1
+
+

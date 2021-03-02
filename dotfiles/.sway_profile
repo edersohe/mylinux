@@ -1,0 +1,15 @@
+# .sway_profile
+
+if [ -z $DISPLAY ] && [ "$(tty)" == "/dev/tty1" ]; then
+    export XDG_RUNTIME_DIR=/tmp/.run/user/$(id -u)
+    mkdir -m 700 -p $XDG_RUNTIME_DIR
+    export XDG_CURRENT_DESKTOP=sway
+    export XDG_SESSION_TYPE=wayland
+    export QT_QPA_PLATFORM=wayland-egl
+    export ELM_DISPLAY=wl
+    export XKB_DEFAULT_LAYOUT=es
+    export MSG_PROGRAM=swaymsg
+
+    exec dbus-run-session sway
+fi
+

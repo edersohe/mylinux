@@ -26,7 +26,7 @@ set $term kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu kitty --class "menu" --config ~/.config/kitty/menu.conf j4-dmenu-desktop --display-binary --no-generic --dmenu=fzf --wrapper="swaymsg exec" --term="kitty"
+set $menu kitty-menu fzf-desktopapps
 
 ### Output configuration
 #
@@ -87,7 +87,7 @@ input * xkb_layout "es"
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec kitty-menu fzf-shutdown
 #
 # Moving around:
 #

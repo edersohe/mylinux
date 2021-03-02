@@ -1,19 +1,17 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 export EDITOR=nvim
 export VISUAL=nvim
 export TERM=xterm-kitty
-export TERMINAL=kitty
 export PAGER="bat -p"
 export BAT_PAGER="less -RFXI"
-export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
-export DMENU_OPTS="-i -fn \"NotoSans Nerd Font:size=10\" -nb \"#3B4252\" -nf \"#B0B5BD\" -sb \"#81A1C1\" -sf \"#2E3440\""
+export BAT_THEME="Nord"
+export MANPAGER=bat-man-pager
+export PATH=$HOME/.scripts:$HOME/go/bin:$HOME/.local/bin:$PATH
+export GO111MODULE="on"
+export WM_PROFILE="sway"
 
-if [ -n "$SWAYSOCK" ] && command -v swaymsg >/dev/null; then
-    export MSG_PROGRAM='swaymsg'
-elif [ -n "$I3SOCK" ] && command -v i3-msg >/dev/null; then
-	export MSG_PROGRAM='i3-msg'
-fi
+. $HOME/.cargo/env
 
 eval "$(starship init bash)"
 

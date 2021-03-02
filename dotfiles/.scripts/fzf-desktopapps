@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+j4-dmenu-desktop --display-binary --no-generic --dmenu=fzf --wrapper="swaymsg exec" --term="kitty"
+

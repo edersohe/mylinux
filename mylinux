@@ -4,6 +4,7 @@ NOW=$(date +"%Y%m%d%H%M%S")
 SRC_DIR=$(pwd)/dotfiles
 DST_DIR=${HOME}
 BKP_DIR=${DST_DIR}/.mylinux/${NOW}
+ELS_VERSION="v0.6.5"
 
 stream() {
     for v in $@; do
@@ -43,14 +44,23 @@ list_dotfiles | backup
 
 list_dotfiles | link
 
-echo '[[ -f ~/.mylinuxrc ]] && . ~/.mylinuxrc' >> ${DST_DIR}/.bashrc
+rustup-init --no-modify-path -y
+
+git submodule update --init --recursive
+
+mkdir -p ${DST_DIR}/.elixir-ls
+cd ${DST_DIR}/.elixir-ls
+rm -rf *
+curl -O -L https://github.com/elixir-lsp/elixir-ls/releases/download/${ELS_VERSION}/elixir-ls.zip
+unzip elixir-ls.zip
+rm elixir-ls.zip
+cd -
+ln -s ${DST_DIR}/.elixir-ls/language_server.sh ${DST_DIR}/.local/bin/elixir-ls
+
+echo '[ -f $HOME/.mylinuxrc ] && . $HOME/.mylinuxrc' >> ${DST_DIR}/.bashrc
 . ${DST_DIR}/.bashrc
 
-echo '
-if [ -z "$DISPLAY" -a $XDG_VTNR -eq 1 ]; then
-  startx && exit
-fi' >> ${DST_DIR}/.bash_profile
-
+echo '[ "$WM_PROFILE" == "sway" ] && . $HOME/.sway_profile || . $HOME/.i3_profile' >> ${DST_DIR}/.bash_profile
 
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python get-pip.py --user
@@ -81,6 +91,8 @@ npm i -g bash-language-server
 npm i -g vscode-css-languageserver-bin
 npm i -g vscode-html-languageserver-bin
 npm i -g javascript-typescript-langserver
+npm i -g dockerfile-language-server-nodejs
+npm i -g typescript-language-server
 
 go get -u golang.org/x/tools/gopls@latest
 

@@ -1,0 +1,7 @@
+# .i3_profile
+
+if [ -z $DISPLAY ] && [ "$(tty)" == "/dev/tty1" ]; then 
+	export MSG_PROGRAM=i3-msg
+    startx && exit
+fi
+

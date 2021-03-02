@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+cat $HOME/.config/qutebrowser/quickmarks | fzf | cut -d " " -f 2 | xargs swaymsg exec qutebrowser
+

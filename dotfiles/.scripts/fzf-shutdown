@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+LOCK="$HOME/.config/i3/scripts/blur-lock.sh"
+LOGOUT="pkill pulseaudio; i3-msg exit"
+
+if [ "$XDG_CURRENT_DESKTOP" = "sway" ]; then
+    LOCK="swaylock -f -c 000000"
+    LOGOUT="pkill pipewire; swaymsg exit"
+fi
+
+MENU_OPTS=' Shutdown\n Reboot\n Suspend\n Lock\n Logout'
+
+RESULT="$(echo "$MENU_OPTS" | fzf)"
+
+if [ "$RESULT" = " Shutdown" ]; then
+	systemctl poweroff
+elif [ "$RESULT" = " Reboot" ]; then
+	systemctl reboot
+elif [ "$RESULT" = " Suspend" ]; then
+	systemctl suspend
+elif [ "$RESULT" = " Lock" ]; then
+    echo "$RESULT"
+	$LOCK
+elif [ "$RESULT" = " Logout" ]; then
+    eval "$LOGOUT"
+fi
+

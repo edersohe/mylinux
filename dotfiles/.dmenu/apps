@@ -1,7 +1,0 @@
-#!/bin/sh
-
-source $HOME/.mylinuxrc
-
-alias dmenu_apps="j4-dmenu-desktop --dmenu='dmenu $DMENU_OPTS' --no-generic --display-binary"
-
-dmenu_apps
