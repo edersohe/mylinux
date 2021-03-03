@@ -101,3 +101,5 @@ cd ${DST_DIR}/.SpaceVim/bundle/vimproc.vim
 make
 cd -
 
+echo "%wheel ALL=(ALL) NOPASSWD: /bin/halt,/bin/zzz,/bin/shutdown,/bin/reboot,/bin/poweroff" | sudo tee /etc/sudoers.d/shutdown
+

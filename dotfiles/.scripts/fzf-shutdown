@@ -2,10 +2,16 @@
 
 LOCK="i3lock -c 000000"
 LOGOUT="pkill pulseaudio; i3-msg exit"
+SHUTDOWN="systemctl poweroff"
+REBOOT="systemctl reboot"
+SUSPEND="systemctl suspend"
 
 if [ "$XDG_CURRENT_DESKTOP" = "sway" ]; then
     LOCK="swaylock -f -c 000000"
     LOGOUT="pkill pipewire; swaymsg exit"
+    SHUTDOWN="sudo poweroff"
+    REBOOT="sudo reboot"
+    SUSPEND="sudo zzz -z"
 fi
 
 MENU_OPTS=' Shutdown\n Reboot\n Suspend\n Lock\n Logout'
@@ -13,14 +19,14 @@ MENU_OPTS=' Shutdown\n Reboot\n Suspend\n Lock\n Logout'
 RESULT="$(echo "$MENU_OPTS" | fzf)"
 
 if [ "$RESULT" = " Shutdown" ]; then
-	systemctl poweroff
+   eval "$SHUTDOWN"
 elif [ "$RESULT" = " Reboot" ]; then
-	systemctl reboot
+   eval "$REBOOT"
 elif [ "$RESULT" = " Suspend" ]; then
-	systemctl suspend
+   eval "$SUSPEND"
 elif [ "$RESULT" = " Lock" ]; then
-	$MSG_PROGRAM exec "$LOCK"
+   "$MSG_PROGRAM" exec "$LOCK"
 elif [ "$RESULT" = " Logout" ]; then
-    eval "$LOGOUT"
+   eval "$LOGOUT"
 fi
 

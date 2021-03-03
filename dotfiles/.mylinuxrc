@@ -16,7 +16,7 @@ export WM_PROFILE="sway"
 eval "$(starship init bash)"
 
 alias ls="exa -G --color always --icons -a -s type"
-alias ll="exa -l --color always --icons -a -s type "
+alias ll="exa -l --color always --icons -a -s type -g -h"
 alias lg="lazygit"
 alias cat="bat -pp"
 alias ssh="kitty +kitten ssh"
