@@ -3,14 +3,14 @@
 
 
 if [ "$XDG_CURRENT_DESKTOP" = "sway" ]; then
-    filter="jq -r '[.nodes[].nodes[] | {ws: .num, id: .nodes[].id, app_id: .nodes[].app_id, name: .nodes[].name}] | unique'"
+    filter="jq -r 'recurse(.nodes[],.floating_nodes[]) | select(.num > 0) | {num: .num, nodes: recurse(.nodes[]) | select(.app_id != null)} | {ws: .num, id: .nodes.id, app_id: .nodes.app_id, name: .nodes.name}'"
 else
-    filter="jq -r '[recurse(.nodes[],.floating_nodes[]) | select(.num > 0) | {ws: .num, nodes: recurse(.nodes[]) | select(.window_properties != null)} | {ws: .ws, id: .nodes.id, app_id: .nodes.window_properties.class, name: .nodes.name}]'"
+    filter="jq -r 'recurse(.nodes[],.floating_nodes[]) | select(.num > 0) | {num: .num, nodes: recurse(.nodes[]) | select(.window_properties != null)} | {ws: .num, id: .nodes.id, app_id: .nodes.window_properties.class, name: .nodes.name}'"
 fi
 
 $MSG_PROGRAM -t get_tree \
     | eval "$filter" \
-    | jq -r '.[] | "[ws:"+(.ws|tostring)+" app:"+.app_id+" id:"+(.id|tostring)+"] - "+.name' \
+    | jq -r '"[ws:"+(.ws|tostring)+" app:"+(.app_id | split(".") | .[-1])+" id:"+(.id|tostring)+"] - "+.name' \
     | fzf \
     | grep -Eo " id:[0-9]+]" \
     | grep -Eo "[0-9]+" \

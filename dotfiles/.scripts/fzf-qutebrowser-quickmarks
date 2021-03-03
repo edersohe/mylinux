@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
 
-cat $HOME/.config/qutebrowser/quickmarks | fzf | cut -d " " -f 2 | xargs swaymsg exec qutebrowser
+RESULT=$(cat $HOME/.config/qutebrowser/quickmarks | fzf | cut -d " " -f 2)
+
+[ "$RESULT" = "" ] || swaymsg exec qutebrowser $RESULT
 

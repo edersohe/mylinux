@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-LOCK="$HOME/.config/i3/scripts/blur-lock.sh"
+LOCK="i3lock -c 000000"
 LOGOUT="pkill pulseaudio; i3-msg exit"
 
 if [ "$XDG_CURRENT_DESKTOP" = "sway" ]; then
@@ -19,8 +19,7 @@ elif [ "$RESULT" = " Reboot" ]; then
 elif [ "$RESULT" = " Suspend" ]; then
 	systemctl suspend
 elif [ "$RESULT" = " Lock" ]; then
-    echo "$RESULT"
-	$LOCK
+	$MSG_PROGRAM exec "$LOCK"
 elif [ "$RESULT" = " Logout" ]; then
     eval "$LOGOUT"
 fi
