@@ -9,7 +9,6 @@ export BAT_THEME="Nord"
 export MANPAGER=bat-man-pager
 export PATH=$HOME/.scripts:$HOME/go/bin:$HOME/.local/bin:$PATH
 export GO111MODULE="on"
-export WM_PROFILE="sway"
 
 [ -f "$HOME/.cargo/env" ] && . $HOME/.cargo/env
 
