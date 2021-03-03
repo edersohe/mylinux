@@ -221,7 +221,7 @@ bindsym $mod+w exec qutebrowser --target tab google.com
 bindsym $mod+n exec kitty --class "ranger" ranger
 bindsym $mod+t exec kitty-menu fzf-window-switcher
 bindsym $mod+q exec kitty-menu fzf-qutebrowser-quickmarks
-bindsym $mod+l exec swaylock -f -c 000000
+bindsym $mod+b exec swaylock -f -c 000000
 
 assign [app_id=kitty] number 1
 assign [app_id=org.qutebrowser.qutebrowser] number 2
