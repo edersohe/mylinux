@@ -134,10 +134,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+c kill
 
 # Lock the system
-# lock with a picture:
-#bindsym $mod+l exec i3lock -i  ~/.config/i3/i3-lock-screen.png -p default|win -t
-# lock by blurring the screen:
-bindsym $mod+l exec ~/.config/i3/scripts/blur-lock.sh
+bindsym $mod+l exec i3lock -c 000000
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -173,18 +170,18 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Shift+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Shift+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+g layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Shitt+s layout stacking
+bindsym $mod+Shift+g layout tabbed
+bindsym $mod+Shift+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -193,7 +190,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus parent
 
 ## Multimedia Keys
 
@@ -415,7 +412,7 @@ bindsym $mod+d exec kitty-menu fzf-desktopapps
 bindsym $mod+t exec kitty-menu fzf-window-switcher
 
 # dmenu shutdown menu
-bindsym $mod+Shift+e exec kitty-menu fzf-shutdown
+bindsym $mod+e exec kitty-menu fzf-shutdown
 
 # dmenu qutebrowser quickmarks
 bindsym $mod+q exec kitty-menu fzf-qutebrowser-quickmarks
