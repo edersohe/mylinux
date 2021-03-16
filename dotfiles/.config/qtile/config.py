@@ -104,8 +104,11 @@ for i in groups:
         #     desc="move focused window to group {}".format(i.name)),
     ])
 
+
+border_focus = "#5E81AC"
+
 layouts = [
-    layout.Columns(border_focus='#5E81AC'),
+    layout.Columns(border_focus=border_focus),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),

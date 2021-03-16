@@ -2,7 +2,7 @@
 
 export EDITOR=nvim
 export VISUAL=nvim
-export TERM=xterm-kitty
+export TERM=xterm-termite
 export PAGER="bat -p"
 export BAT_PAGER="less -RFXI"
 export BAT_THEME="Nord"
@@ -10,7 +10,7 @@ export MANPAGER=bat-man-pager
 export PATH=$HOME/.scripts:$HOME/go/bin:$HOME/.local/bin:$PATH
 export GO111MODULE="on"
 
-[ -f "$HOME/.cargo/env" ] && . $HOME/.cargo/env
+[[ -f "$HOME/.cargo/env" ]] && . $HOME/.cargo/env
 
 eval "$(starship init bash)"
 
@@ -18,5 +18,4 @@ alias ls="exa -G --color always --icons -a -s type"
 alias ll="exa -l --color always --icons -a -s type -g -h"
 alias lg="lazygit"
 alias cat="bat -pp"
-alias ssh="kitty +kitten ssh"
 

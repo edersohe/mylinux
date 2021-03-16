@@ -58,17 +58,12 @@ cd -
 ln -s ${DST_DIR}/.elixir-ls/language_server.sh ${DST_DIR}/.local/bin/elixir-ls
 
 echo '
-[ -f $HOME/.mylinuxrc ] && . $HOME/.mylinuxrc
-export WM_PROFILE="i3"
+[[ -f $HOME/.mylinuxrc ]] && . $HOME/.mylinuxrc
 ' >> ${DST_DIR}/.bashrc
 . ${DST_DIR}/.bashrc
 
 echo '
-if [ "$WM_PROFILE" = "sway" ]; then
-    . $HOME/.sway_profile
-else
-    . $HOME/.i3_profile
-fi
+[[ -f $HOME/.qtile_profile ]] && $HOME/.qtile_profile
 ' >> ${DST_DIR}/.bash_profile
 
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
@@ -113,5 +108,4 @@ cd -
 
 echo "%wheel ALL=(ALL) NOPASSWD: /bin/halt,/bin/zzz,/bin/shutdown,/bin/reboot,/bin/poweroff" | sudo tee /etc/sudoers.d/shutdown
 sudo sed -i "s/#AutoEnable=.*/AutoEnable=true/" /etc/bluetooth/main.conf
-sudo sed -Ei 's/#(.*pipewire-pulse\.conf.*)/\1/g' /etc/pipewire/pipewire.conf
 
