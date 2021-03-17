@@ -34,8 +34,8 @@ from libqtile.lazy import lazy
 
 mod = "mod4"
 terminal = "termite"
-browser = "qutebrowser"
-file_manager = "termite -t ranger -e ranger"
+browser = "qutebrowser ':open -t'"
+file_manager = "termite --class ranger -e ranger"
 
 keys = [
     # Switch between windows
@@ -87,7 +87,15 @@ keys = [
     Key([mod], "f", lazy.spawn(file_manager), desc="Launch File Manager"),
 ]
 
-groups = [Group(i) for i in "123456789"]
+
+
+groups = [
+    Group('1', label='DEV', matches=[Match(wm_class=[("termite", "Termite")])]),
+    Group('2', label='WWW', matches=[Match(wm_class=["qutebrowser"])]),
+    Group('3', label='MAIL', matches=[Match(wm_class=["mutt"])]),
+    Group('4', label='FILES', matches=[Match(wm_class=["ranger"])]),
+    Group('5', label='MUSIC', matches=[Match(wm_class=["tizonia"])]),
+]
 
 for i in groups:
     keys.extend([
@@ -134,24 +142,27 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
+                #  widget.Chord(
+                #      chords_colors={
+                #          'launch': ("#ff0000", "#ffffff"),
+                #      },
+                #      name_transform=lambda name: name.upper(),
+                #  ),
                 #widget.TextBox("default config", name="default"),
                 #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
+                widget.CurrentLayout(),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
                 widget.QuickExit(),
             ],
             24,
+            background="#2E3440",
         ),
+        wallpaper="~/.wallpaper",
+        wallpaper_mode="fill"
     ),
 ]
 
@@ -179,6 +190,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
+    Match(wm_class='Blueberry.py')
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
