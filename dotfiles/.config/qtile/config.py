@@ -26,9 +26,10 @@
 
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget
+from libqtile import bar, layout, widget, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
+#from libqtile.log_utils import logger
 
 
 
@@ -36,6 +37,10 @@ mod = "mod4"
 terminal = "termite"
 browser = "qutebrowser ':open -t'"
 file_manager = "termite --class ranger -e ranger"
+bluetooth = "blueberry"
+network_manager = "nm-connection-editor"
+volume = "pavucontrol"
+
 
 keys = [
     # Switch between windows
@@ -138,6 +143,23 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+class CapsNumLockIndicatorCustom(widget.CapsNumLockIndicator):
+    def poll(self):
+        """Poll content for the text box."""
+        indicators = self.get_indicators()
+        status = " ".join([indicator[0].lower() for indicator in indicators if indicator in [('Caps','on'), ('Num', 'on')]])
+        return status
+
+def open_network():
+    qtile.cmd_spawn(network_manager)
+
+def open_volume():
+    qtile.cmd_spawn(volume)
+
+def open_bluetooth():
+    qtile.cmd_spawn(bluetooth)
+
+
 screens = [
     Screen(
         bottom=bar.Bar(
@@ -155,6 +177,9 @@ screens = [
                 #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
                 widget.CurrentLayout(),
+                CapsNumLockIndicatorCustom(),
+                widget.Wlan(mouse_callbacks={"Button1": open_network}),
+                widget.Volume(mouse_callbacks={"Button1": open_volume}),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
                 widget.QuickExit(),
             ],
@@ -190,7 +215,11 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
-    Match(wm_class='Blueberry.py')
+    Match(wm_class='Blueberry.py'),
+    Match(wm_class='pavucontrol'),
+    Match(wm_class='blueman-manager'),
+    Match(wm_class="nm-connection-editor"),
+    Match(wm_class="nmtui"),
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
@@ -203,4 +232,4 @@ focus_on_window_activation = "smart"
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = "Qtile"
