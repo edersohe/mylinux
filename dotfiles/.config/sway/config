@@ -19,6 +19,9 @@ default_border pixel 1
 gaps outer 0
 gaps inner 8
 
+#font
+font pango:FiraCode Nerd Font 10
+
 # Your preferred terminal emulator
 set $term kitty
 
@@ -218,8 +221,8 @@ bindsym $mod+Shift+r mode "resize"
     #}
 #}
 
-bindsym $mod+p exec qutebrowser --target private-window google.com
-bindsym $mod+w exec qutebrowser --target tab google.com
+bindsym $mod+p exec qutebrowser --no-err-windows --target private-window google.com
+bindsym $mod+w exec qutebrowser --no-err-windows --target tab google.com
 bindsym $mod+n exec kitty --class "ranger" ranger
 bindsym $mod+t exec kitty-menu fzf-window-switcher
 bindsym $mod+q exec kitty-menu fzf-qutebrowser-quickmarks
@@ -251,8 +254,9 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec $menu
 
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
-exec --no-startup-id autotiling -w 1 3 5
+exec --no-startup-id autotiling
 exec --no-startup-id pipewire
+#exec --no-startup-id pulseaudio --daemonize=no --exit-idle-time=-1
 exec --no-startup-id waybar
 
 include /etc/sway/config.d/*

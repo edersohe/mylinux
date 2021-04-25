@@ -158,5 +158,9 @@ c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}'}
 # Type: List of FuzzyUrl, or FuzzyUrl
 c.url.start_pages = 'https://google.com'
 
+c.fonts.default_family = 'FiraCode Nerd Font'
+c.fonts.contextmenu = 'default_size default_family'
+c.fonts.web.family.standard = 'default_family'
+
 config.source('theme.py')
 

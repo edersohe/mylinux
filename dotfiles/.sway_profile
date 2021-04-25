@@ -7,7 +7,8 @@ if [ -z $DISPLAY ] && [ "$(tty)" == "/dev/tty1" ]; then
     export XDG_SESSION_TYPE=wayland
     export QT_QPA_PLATFORM=wayland-egl
     export ELM_DISPLAY=wl
-    export XKB_DEFAULT_LAYOUT=es
+    export XKB_DEFAULT_LAYOUT=us
+    export XKB_DEFAULT_VARIANT=altgr-intl
     export MSG_PROGRAM=swaymsg
 
     dbus-run-session sway

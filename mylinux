@@ -4,7 +4,7 @@ NOW=$(date +"%Y%m%d%H%M%S")
 SRC_DIR=$(pwd)/dotfiles
 DST_DIR=${HOME}
 BKP_DIR=${DST_DIR}/.mylinux/${NOW}
-ELS_VERSION="v0.6.5"
+ELS_VERSION="v0.7.0"
 
 stream() {
     for v in $@; do
@@ -59,7 +59,7 @@ ln -s ${DST_DIR}/.elixir-ls/language_server.sh ${DST_DIR}/.local/bin/elixir-ls
 
 echo '
 [ -f $HOME/.mylinuxrc ] && . $HOME/.mylinuxrc
-export WM_PROFILE="i3"
+export WM_PROFILE="sway"
 ' >> ${DST_DIR}/.bashrc
 . ${DST_DIR}/.bashrc
 
@@ -71,22 +71,24 @@ else
 fi
 ' >> ${DST_DIR}/.bash_profile
 
+source ${DST_DIR}/.bashrc
+
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python get-pip.py --user
 rm get-pip.py
-pip install -U pynvim
-pip install -U pyvim
-pip install -U pygments
-pip install -U pipenv
-pip install -U notedown
-pip install -U pylint
-pip install -U yapf
-pip install -U autoflake
-pip install -U isort
-pip install -U coverage
-pip install -U python-language-server
-pip install -U pillow
-pip install -U autotiling
+python -m pip install -U pynvim
+python -m pip install -U pyvim
+python -m pip install -U pygments
+python -m pip install -U pipenv
+python -m pip install -U notedown
+python -m pip install -U pylint
+python -m pip install -U yapf
+python -m pip install -U autoflake
+python -m pip install -U isort
+python -m pip install -U coverage
+python -m pip install -U python-language-server
+python -m pip install -U pillow
+python -m pip install -U autotiling
 
 npm config set prefix ${DST_DIR}/.local
 npm i -g typescript
