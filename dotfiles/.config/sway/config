@@ -231,11 +231,13 @@ bindsym $mod+b exec swaylock -f -c 000000
 assign [app_id=kitty] number 1
 assign [app_id=org.qutebrowser.qutebrowser] number 2
 assign [app_id=ranger] number 3
+assign [app_id=virt-manager] number 4
 
 for_window [app_id=kitty] focus
 for_window [app_id=org.qutebrowser.qutebrowser] focus
 for_window [app_id=ranger] focus
 for_window [app_id=menu] focus
+for_window [app_id=virt-manager] focus
 
 for_window [app_id=menu] floating enable
 for_window [app_id=pavucontrol] floating enable

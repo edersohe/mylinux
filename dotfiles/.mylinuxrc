@@ -7,7 +7,7 @@ export PAGER="bat -p"
 export BAT_PAGER="less -RFXI"
 export BAT_THEME="Nord"
 export MANPAGER=bat-man-pager
-export PATH=$HOME/.scripts:$HOME/go/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.scripts:$HOME/go/bin:$HOME/.local/bin:/usr/lib/psql13/bin/:$PATH
 export GO111MODULE="on"
 
 [ -f "$HOME/.cargo/env" ] && . $HOME/.cargo/env
