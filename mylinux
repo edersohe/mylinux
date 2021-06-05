@@ -106,14 +106,14 @@ npm i -g javascript-typescript-langserver
 npm i -g dockerfile-language-server-nodejs
 npm i -g typescript-language-server
 
-go get -u golang.org/x/tools/gopls@latest
+go get golang.org/x/tools/gopls@latest
 
 curl -sLf https://spacevim.org/install.sh | bash
 cd ${DST_DIR}/.SpaceVim/bundle/vimproc.vim
 make
 cd -
 
-echo "%wheel ALL=(ALL) NOPASSWD: /bin/halt,/bin/zzz,/bin/shutdown,/bin/reboot,/bin/poweroff" | sudo tee /etc/sudoers.d/shutdown
-sudo sed -i "s/#AutoEnable=.*/AutoEnable=true/" /etc/bluetooth/main.conf
-sudo sed -Ei 's/#(.*pipewire-pulse\.conf.*)/\1/g' /etc/pipewire/pipewire.conf
+#echo '%wheel ALL=(ALL) NOPASSWD: /bin/halt,/bin/zzz,/bin/shutdown,/bin/reboot,/bin/poweroff' | sudo tee /etc/sudoers.d/shutdown
+#sudo sed -i 's/#AutoEnable=.*/AutoEnable=true/' /etc/bluetooth/main.conf
+#sudo sed -Ei 's/#(.*pipewire-pulse\.conf.*)/\1/g' /etc/pipewire/pipewire.conf
 
