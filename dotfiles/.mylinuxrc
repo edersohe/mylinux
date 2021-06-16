@@ -19,4 +19,5 @@ alias ll="exa -l --color always --icons -a -s type -g -h"
 alias lg="lazygit"
 alias cat="bat -pp"
 alias ssh="kitty +kitten ssh"
+alias code="code-oss"
 
