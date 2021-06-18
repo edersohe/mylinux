@@ -11,6 +11,7 @@ if [ -z $DISPLAY ] && [ "$(tty)" == "/dev/tty1" ]; then
     export XKB_DEFAULT_LAYOUT=us
     export XKB_DEFAULT_VARIANT=altgr-intl
     export MSG_PROGRAM=swaymsg
+    export _JAVA_AWT_WM_NONREPARENTING=1
 
     dbus-run-session sway
     exit
