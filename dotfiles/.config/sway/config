@@ -223,8 +223,11 @@ bindsym $mod+Shift+r mode "resize"
 
 #bindsym $mod+p exec qutebrowser --no-err-windows --target private-window google.com
 #bindsym $mod+w exec qutebrowser --no-err-windows --target tab google.com
-bindsym $mod+p exec google-chrome-stable --incognito google.com
-bindsym $mod+w exec google-chrome-stable google.com
+#bindsym $mod+p exec google-chrome-stable --incognito google.com
+#bindsym $mod+w exec google-chrome-stable google.com
+bindsym $mod+shift+p exec kitty-menu fzf-gopass
+bindsym $mod+p exec grim -g "$(slurp)"
+bindsym $mod+w exec luakit
 bindsym $mod+n exec kitty --class "ranger" ranger
 bindsym $mod+t exec kitty-menu fzf-window-switcher
 bindsym $mod+q exec kitty-menu fzf-qutebrowser-quickmarks
@@ -233,10 +236,12 @@ bindsym $mod+b exec swaylock -f -c 000000
 assign [app_id=kitty] number 1
 assign [app_id=org.qutebrowser.qutebrowser] number 2
 assign [class=Google-chrome] number 2
+assign [app_id=luakit] number 2
 assign [app_id=ranger] number 3
 assign [app_id=virt-manager] number 4
 
 for_window [app_id=kitty] focus
+for_window [app_id=luakit] focus
 for_window [app_id=org.qutebrowser.qutebrowser] focus
 for_window [class=Google-chrome] focus
 for_window [app_id=ranger] focus
@@ -259,11 +264,11 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec $menu
 
-exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
+exec --no-startup-id dunst --config ~/.config/dunst/dunstrc
 exec --no-startup-id autotiling
 exec --no-startup-id pipewire
 exec --no-startup-id pipewire-pulse
-#exec --no-startup-id pulseaudio --daemonize=no --exit-idle-time=-1
 exec --no-startup-id waybar
+exec --no-startup-id wl-paste -t text --watch clipman store --max-items=1 -P
 
 include /etc/sway/config.d/*

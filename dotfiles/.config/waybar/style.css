@@ -14,11 +14,11 @@ window#waybar {
 #window {
     font-weight: bold;
 }
-/*
+
 #workspaces {
     padding: 0 5px;
+    font-weight: bold;
 }
-*/
 
 #workspaces button {
     padding: 0 5px;

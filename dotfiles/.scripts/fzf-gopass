@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+MENU_OPTS=$(gopass ls -f)
+
+RESULT="$(echo "$MENU_OPTS" | fzf)"
+
+
+gopass show $RESULT | head -1 | wl-copy -n
+
+clipman restore
+
+notify-send "password copied" "$RESULT"
+
